@@ -114,11 +114,9 @@ function SheetMobile({
 
                 <div className="flex flex-col gap-1 mt-8">
                     {navbarItems.map((item) => (
-                        <NavItem
-                            key={item.name}
-                            item={item}
-                            onClick={handleNavClick}
-                        />
+                        <a key={item.name} href={item.href} onClick={handleNavClick}>
+                            <NavItem item={item} />
+                        </a>
                     ))}
                 </div>
 

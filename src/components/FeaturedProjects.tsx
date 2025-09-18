@@ -489,7 +489,7 @@ export default function FeaturedProjects() {
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/10 p-8">
+        <div id='projects' className="min-h-screen pt-20 bg-gradient-to-br from-background via-background to-muted/10 p-8">
             <div className="max-w-7xl mx-auto">
                 {/* Header Section */}
                 <motion.div
@@ -535,94 +535,6 @@ export default function FeaturedProjects() {
                         />
                     ))}
                 </div>
-
-                {/* Stats Footer */}
-                <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.5, duration: 0.8 }}
-                    className="text-center"
-                >
-                    <div className="inline-flex items-center justify-center space-x-12 bg-gradient-to-r from-card/80 via-card to-card/80 backdrop-blur-sm border border-border/50 rounded-2xl px-12 py-8 shadow-lg">
-                        <div className="text-center">
-                            <motion.div
-                                className="text-4xl font-bold text-primary mb-2"
-                                initial={{ scale: 0.5 }}
-                                animate={{ scale: 1 }}
-                                transition={{
-                                    delay: 1.8,
-                                    type: 'spring',
-                                    stiffness: 200,
-                                }}
-                            >
-                                50M+
-                            </motion.div>
-                            <div className="text-sm text-muted-foreground font-medium">
-                                Total Impressions
-                            </div>
-                        </div>
-
-                        <div className="w-px h-12 bg-gradient-to-b from-transparent via-border to-transparent" />
-
-                        <div className="text-center">
-                            <motion.div
-                                className="text-4xl font-bold text-primary mb-2"
-                                initial={{ scale: 0.5 }}
-                                animate={{ scale: 1 }}
-                                transition={{
-                                    delay: 2,
-                                    type: 'spring',
-                                    stiffness: 200,
-                                }}
-                            >
-                                880
-                            </motion.div>
-                            <div className="text-sm text-muted-foreground font-medium">
-                                GitHub Stars
-                            </div>
-                        </div>
-
-                        <div className="w-px h-12 bg-gradient-to-b from-transparent via-border to-transparent" />
-
-                        <div className="text-center">
-                            <motion.div
-                                className="text-4xl font-bold text-primary mb-2"
-                                initial={{ scale: 0.5 }}
-                                animate={{ scale: 1 }}
-                                transition={{
-                                    delay: 2.2,
-                                    type: 'spring',
-                                    stiffness: 200,
-                                }}
-                            >
-                                4.9/5
-                            </motion.div>
-                            <div className="text-sm text-muted-foreground font-medium">
-                                User Rating
-                            </div>
-                        </div>
-
-                        <div className="w-px h-12 bg-gradient-to-b from-transparent via-border to-transparent" />
-
-                        <div className="text-center">
-                            <motion.div
-                                className="text-4xl font-bold text-primary mb-2"
-                                initial={{ scale: 0.5 }}
-                                animate={{ scale: 1 }}
-                                transition={{
-                                    delay: 2.4,
-                                    type: 'spring',
-                                    stiffness: 200,
-                                }}
-                            >
-                                24
-                            </motion.div>
-                            <div className="text-sm text-muted-foreground font-medium">
-                                Technologies
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
 
                 {/* Call to Action */}
                 <motion.div

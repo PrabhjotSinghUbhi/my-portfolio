@@ -249,7 +249,7 @@ export default function Expertise({ className }: { className: string }) {
         },
         {
             icon: <Palette size={28} />,
-            domain: "Design & UI/UX",   
+            domain: "Design & UI/UX",
             experience: "3+ years",
             projects: 30,
             speciality: "Design Systems",
@@ -266,7 +266,7 @@ export default function Expertise({ className }: { className: string }) {
     ];
 
     return (
-        <div className={`min-h-screen bg-gradient-to-br from-background via-background to-muted/20 p-8 ${className}`}>
+        <div id='skills' className={`min-h-screen bg-gradient-to-br pt-24 from-background via-background to-muted/20 p-8 ${className}`}>
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: -30 }}

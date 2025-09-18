@@ -67,9 +67,9 @@ const pointsData = [
     }
 ];
 
-function AboutMe({className}: {className?: string}) {
+function AboutMe({ className }: { className?: string }) {
     return (
-        <div className={`flex 100vh flex-col relative justify-center gap-8 px-4 md:px-16 lg:px-32 ${className}`}>
+        <div id='about' className={`flex 100vh flex-col relative justify-center gap-8 px-4 md:px-16 lg:px-32 ${className}`}>
 
             <Particles
                 className="absolute inset-0 "

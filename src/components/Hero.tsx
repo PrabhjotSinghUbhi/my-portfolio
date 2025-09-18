@@ -48,9 +48,9 @@ const skills = [
     "React", "Typescript", "Node.js", "MongoDB", "Express", "Tailwind CSS"
 ]
 
-function Hero({className}: {className?: string}) {
+function Hero({ className }: { className?: string }) {
     return (
-        <div className={`relative overflow-scroll mt-8 ${className}`}>
+        <div id='home' className={`relative overflow-scroll mt-8 ${className}`}>
             {/* Background Circles */}
 
             <section className='lg:w-1/2 md:3/4 sm:mx-auto w-full px-3 flex flex-col justify-center items-center gap-8 min-h-screen'>
