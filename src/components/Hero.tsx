@@ -7,13 +7,7 @@ import {
     TooltipTrigger,
 } from "./ui/tooltip"
 import { BackgroundBeams } from './ui/shadcn-io/background-beams';
-
-const SkillCapsule = ({ skill }: { skill: string }) => {
-    return (
-        <Button className='rounded-full border  font-semibold hover:border-white bg-[#333] text-white hover:bg-black'>
-            {skill}
-        </Button>)
-}
+import SkillCapsule from './SkillCapsule';
 
 const tooltipContent = ["GitHub", "LinkedIn", "Resume"];
 

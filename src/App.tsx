@@ -2,11 +2,8 @@ import React from 'react';
 import NavbarMobile from './components/Navbar';
 import Hero from './components/Hero';
 import AboutMe from './components/AboutMe';
-import { Meteors } from './components/ui/shadcn-io/meteors';
-import { AuroraBackground } from './components/ui/shadcn-io/aurora-background';
-import { BackgroundBeamsWithCollision } from './components/ui/shadcn-io/background-beams-with-collision';
-import { WavyBackground } from './components/ui/shadcn-io/wavy-background';
-import { Boxes } from './components/ui/shadcn-io/background-boxes';
+import Expertise from './components/Expertise';
+import FeaturedProjects from './components/FeaturedProjects';
 
 function App() {
 
@@ -17,6 +14,8 @@ function App() {
         <Hero className='' />
       </div>
       <AboutMe className="relative z-10 pt-18" />
+      <Expertise className="mt-10" />
+      <FeaturedProjects />
     </>
 
   )

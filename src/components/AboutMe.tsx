@@ -76,12 +76,9 @@ function AboutMe({className}: {className?: string}) {
                 quantity={500}
                 ease={80}
                 color="#fff"
-                
+
                 refresh
             />
-
-            <div className="absolute right-0 bottom-0 h-78 blur-3xl w-78 bg-blue-500/30 rounded-full"></div>
-            <div className="absolute left-0 bottom-0 h-78 blur-3xl w-78 bg-pink-500/30 rounded-full"></div>
 
             {/* About Me  */}
             <div>
