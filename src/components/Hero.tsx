@@ -9,19 +9,29 @@ import {
 import { BackgroundBeams } from './ui/shadcn-io/background-beams';
 import SkillCapsule from './SkillCapsule';
 
-const tooltipContent = ["GitHub", "LinkedIn", "Resume"];
-
-const SocialIconCapsule = ({ icon, content }: { icon: React.ReactNode, content: string }) => {
+const SocialIconCapsule = ({
+    icon,
+    content,
+    href,
+    className
+}: {
+    icon: React.ReactNode,
+    content: string,
+    href: string,
+    className?: string
+}) => {
     return (
-        <Tooltip>
-            <TooltipTrigger asChild>
-                <Button variant="outline" className='h-12 w-12 rounded-full flex justify-center items-center p-0'>
-                    {icon}
-                </Button>
-            </TooltipTrigger>
-            <TooltipContent>
-                <p>{content}</p>
-            </TooltipContent>
+        <Tooltip >
+            <a href={href} target="_blank" rel="noopener noreferrer">
+                <TooltipTrigger asChild>
+                    <Button variant="outline" className='h-12 w-12 rounded-full flex justify-center items-center p-0'>
+                        {icon}
+                    </Button>
+                </TooltipTrigger>
+                <TooltipContent>
+                    <p>{content}</p>
+                </TooltipContent>
+            </a>
         </Tooltip>
     )
 }
@@ -30,17 +40,20 @@ const socialIcons = [
     {
         name: "GitHub",
         icon: <GithubIcon className='scale-150' />,
-        content: "GitHub"
+        content: "GitHub",
+        href: "https://github.com/PrabhjotSinghUbhi"
     },
     {
         name: "LinkedIn",
         icon: <Linkedin className='scale-150' />,
-        content: "LinkedIn"
+        content: "LinkedIn",
+        href: "https://www.linkedin.com/in/prabhjotsinghubhi/"
     },
     {
         name: "resume",
         icon: <DownloadIcon className='scale-150' />,
-        content: "Resume"
+        content: "Resume",
+        href: "/resume.pdf"
     }
 ]
 
@@ -50,7 +63,7 @@ const skills = [
 
 function Hero({ className }: { className?: string }) {
     return (
-        <div id='home' className={`relative overflow-scroll mt-8 ${className}`}>
+        <div id='home' className={`z-50 overflow-scroll pt-8 ${className}`}>
             {/* Background Circles */}
 
             <section className='lg:w-1/2 md:3/4 sm:mx-auto w-full px-3 flex flex-col justify-center items-center gap-8 min-h-screen'>
@@ -81,10 +94,13 @@ function Hero({ className }: { className?: string }) {
                 {/* Social Media Icons */}
                 <div className=" flex justify-center gap-4 items-center">
                     {socialIcons.map((social) => (
+
                         <SocialIconCapsule
                             key={social.name}
                             icon={social.icon}
                             content={social.content}
+                            href={social.href}
+                            className=""
                         />
                     ))}
                 </div>
@@ -96,7 +112,7 @@ function Hero({ className }: { className?: string }) {
                     </Button>
                 </div>
             </section>
-            <BackgroundBeams />
+            <BackgroundBeams className='-z-50' />
         </div >
     )
 }

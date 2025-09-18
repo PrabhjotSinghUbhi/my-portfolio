@@ -127,7 +127,10 @@ function SheetMobile({
                             "bg-primary hover:bg-primary/90",
                             "text-primary-foreground"
                         )}
-                        onClick={handleNavClick}
+                        onClick={() => {
+                            handleNavClick();
+                            window.scrollTo({ top: document.getElementById("contact")?.offsetTop, behavior: 'smooth' });
+                        }}
                     >
                         <Mail className="h-4 w-4" />
                         Get in Touch

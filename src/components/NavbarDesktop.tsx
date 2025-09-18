@@ -77,7 +77,9 @@ function NavbarDesktop() {
                     </div>
                 </section>
                 <section id='Menu' className='dark:text-white text-black '>
-                    <Button>
+                    <Button onClick={() => {
+                        window.scrollTo({ top: document.getElementById("contact")?.offsetTop, behavior: 'smooth' });
+                    }}>
                         Let's Talk
                     </Button>
                 </section>

@@ -1,171 +1,75 @@
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { Github, Star } from "lucide-react";
+import { Badge } from "./ui/badge";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
+import { Button } from "./ui/button";
 
-export const RecentContributionCard = ({
-    GithubIcon,
-    repoName,
-    description,
-    status,
-    myContribution,
-    contributionType
-}: {
-    GithubIcon: React.ReactNode;
-    repoName: string;
-    description: string;
-    status: React.ReactNode;
-    myContribution: string;
-    contributionType: React.ReactNode;
-}) => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, threshold: 0.1 });
-
-    const cardVariants = {
-        hidden: {
-            opacity: 0,
-            y: 20,
-            scale: 0.95
-        },
-        visible: {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            transition: {
-                duration: 0.6,
-                ease: [0.25, 0.46, 0.45, 0.94]
-            }
-        }
-    };
-
-    const contentVariants = {
-        hidden: { opacity: 0, y: 10 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                delay: 0.2,
-                duration: 0.5,
-                staggerChildren: 0.1
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, x: -10 },
-        visible: {
-            opacity: 1,
-            x: 0,
-            transition: { duration: 0.4 }
-        }
-    };
-
-    return (
-        <motion.div
-            ref={ref}
-            variants={cardVariants}
-            initial="hidden"
-            animate={isInView ? "visible" : "hidden"}
-            whileHover={{
-                y: -4,
-                transition: { duration: 0.2 }
-            }}
-            className="group relative overflow-hidden rounded-lg border border-border bg-card p-6 shadow-sm transition-all duration-300 hover:shadow-md"
-        >
-            {/* Subtle gradient overlay on hover */}
-            <div className="absolute inset-0 bg-gradient-to-br from-muted/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-
-            <motion.div
-                variants={contentVariants}
-                className="relative z-10"
-            >
-                <motion.div
-                    variants={itemVariants}
-                    className="mb-4"
+const RecentContributionCards = ({ contributions }: { contributions: any[] }) => {
+    return <div className="space-y-8 mb-16">
+        <h3 className="text-3xl font-bold text-center">
+            Recent <span className="gradient-text">Contributions</span>
+        </h3>
+        <div className="space-y-6">
+            {contributions.map((contrib, index) => (
+                <Card
+                    key={contrib.repo}
+                    className="card-hover border-border bg-card/50 backdrop-blur-sm animate-fade-in-up"
+                    style={{ animationDelay: `${index * 0.2}s` }}
                 >
-                    <div className="flex items-center justify-between mb-3">
-                        <div className="flex items-center">
-                            <motion.div
-                                className="mr-3 text-2xl"
-                                whileHover={{ scale: 1.1, rotate: 5 }}
-                                transition={{ type: "spring", stiffness: 400 }}
-                            >
-                                {GithubIcon}
-                            </motion.div>
-                            <motion.h3
-                                className="text-lg font-semibold text-foreground"
-                                variants={itemVariants}
-                            >
-                                {repoName}
-                            </motion.h3>
+                    <CardHeader>
+                        <div className="flex items-start justify-between">
+                            <div className="flex-1">
+                                <CardTitle className="flex items-center space-x-3 text-xl mb-2">
+                                    <Github className="h-5 w-5" />
+                                    <span>{contrib.repo}</span>
+                                    <Badge
+                                        className={`${contrib.status === 'Merged'
+                                            ? 'bg-success text-white'
+                                            : 'bg-warning text-black'
+                                            }`}
+                                    >
+                                        {contrib.status}
+                                    </Badge>
+                                </CardTitle>
+                                <CardDescription className="text-muted-foreground mb-3">
+                                    {contrib.description}
+                                </CardDescription>
+                            </div>
+                            <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                                <div className="flex items-center">
+                                    <Star className="h-4 w-4 mr-1" />
+                                    {contrib.stars}
+                                </div>
+                                <Badge variant="outline" className="border-border">
+                                    {contrib.language}
+                                </Badge>
+                            </div>
                         </div>
-                        <motion.div variants={itemVariants}>
-                            {status}
-                        </motion.div>
-                    </div>
-                    <motion.p
-                        variants={itemVariants}
-                        className="text-sm text-muted-foreground leading-relaxed"
-                    >
-                        {description}
-                    </motion.p>
-                </motion.div>
-
-                <motion.div
-                    variants={itemVariants}
-                    className="space-y-2"
-                >
-                    <motion.h4
-                        className="text-base font-medium text-foreground"
-                        variants={itemVariants}
-                    >
-                        My Contribution
-                    </motion.h4>
-                    <motion.p
-                        variants={itemVariants}
-                        className="text-sm text-muted-foreground leading-relaxed"
-                    >
-                        {myContribution}
-                    </motion.p>
-                    <motion.div variants={itemVariants}>
-                        {contributionType}
-                    </motion.div>
-                </motion.div>
-            </motion.div>
-        </motion.div>
-    );
-};
-
-// Example usage with sample data
-const ExampleUsage = () => {
-    const sampleCards = [
-        {
-            GithubIcon: "🚀",
-            repoName: "awesome-project",
-            description: "A modern web application built with React and TypeScript, featuring a clean UI and robust architecture.",
-            status: <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Merged</span>,
-            myContribution: "Implemented the entire authentication system with JWT tokens, password reset functionality, and role-based access control.",
-            contributionType: <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">Feature</span>
-        },
-        {
-            GithubIcon: "📚",
-            repoName: "docs-site",
-            description: "Comprehensive documentation website with interactive examples and clear tutorials for developers.",
-            status: <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">In Review</span>,
-            myContribution: "Fixed critical accessibility issues and improved keyboard navigation throughout the documentation.",
-            contributionType: <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full">Bug Fix</span>
-        }
-    ];
-
-    return (
-        <div className="min-h-screen bg-background p-8 space-y-6">
-            <h1 className="text-2xl font-bold mb-8 text-center">Recent Contributions</h1>
-            <div className="max-w-2xl mx-auto space-y-6">
-                {sampleCards.map((card, index) => (
-                    <RecentContributionCard key={index} {...card} />
-                ))}
-            </div>
+                    </CardHeader>
+                    <CardContent>
+                        <div className="space-y-4">
+                            <div>
+                                <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wider mb-2">
+                                    My Contribution
+                                </h4>
+                                <p className="text-foreground">{contrib.myContribution}</p>
+                            </div>
+                            <div className="flex items-center justify-between">
+                                <Badge variant="secondary" className="bg-muted">
+                                    {contrib.type}
+                                </Badge>
+                                <Button variant="outline" size="sm" className="border-border" asChild>
+                                    <a href={`https://github.com/${contrib.repo}`} target="_blank" rel="noopener noreferrer">
+                                        <Github className="mr-2 h-3 w-3" />
+                                        View Repository
+                                    </a>
+                                </Button>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+            ))}
         </div>
-    );
-};
+    </div>
+}
 
-export default ExampleUsage;
+export default RecentContributionCards;

@@ -1,6 +1,6 @@
 import { GitBranchIcon, GithubIcon, Group, Medal, Star } from 'lucide-react'
 import React from 'react'
-import { RecentContributionCard } from './temp'
+import RecentContributionCards from './temp'
 import GithubHeatmap from './GithubHeatMap'
 import { Badge } from "./ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
@@ -66,24 +66,36 @@ const ContributionCard = ({ icon, number, contributionType }) => {
     )
 }
 
-const recentContributionData = [
+const contributions = [
     {
-        GithubIcon: "🚀",
-        repoName: "awesome-project",
-        description: "A modern web application built with React and TypeScript, featuring a clean UI and robust architecture.",
-        status: <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">Merged</span>,
-        myContribution: "Implemented the entire authentication system with JWT tokens, password reset functionality, and role-based access control.",
-        contributionType: <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-blue-100 text-blue-800 rounded-full">Feature</span>
+        repo: "facebook/react",
+        description: "A declarative, efficient, and flexible JavaScript library for building user interfaces.",
+        myContribution: "Fixed accessibility issues in form components and improved TypeScript definitions",
+        language: "JavaScript",
+        stars: "219k",
+        status: "Merged",
+        type: "Bug Fix"
     },
     {
-        GithubIcon: "📚",
-        repoName: "docs-site",
-        description: "Comprehensive documentation website with interactive examples and clear tutorials for developers.",
-        status: <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded-full">In Review</span>,
-        myContribution: "Fixed critical accessibility issues and improved keyboard navigation throughout the documentation.",
-        contributionType: <span className="inline-flex items-center px-2 py-1 text-xs font-medium bg-red-100 text-red-800 rounded-full">Bug Fix</span>
+        repo: "vercel/next.js",
+        description: "The React Framework for the Web. Used by some of the world's largest companies.",
+        myContribution: "Enhanced documentation for dynamic imports and contributed to performance optimizations",
+        language: "TypeScript",
+        stars: "118k",
+        status: "Under Review",
+        type: "Documentation"
+    },
+    {
+        repo: "tailwindlabs/tailwindcss",
+        description: "A utility-first CSS framework for rapidly building custom designs.",
+        myContribution: "Added new utility classes for modern CSS features and improved build performance",
+        language: "CSS",
+        stars: "79k",
+        status: "Merged",
+        type: "Feature"
     }
 ];
+
 function OpenSource() {
     return (
         <div id='opensource' className='my-20 pt-24 px-5 md:px-20 lg:px-40'>
@@ -119,11 +131,7 @@ function OpenSource() {
                     <GithubHeatmap />
                 </div>
                 <div className='flex flex-col gap-6 px-5 md:px-20 lg:px-40 mb-20'>
-                    {
-                        recentContributionData.map((data,) => (
-                            <RecentContributionCard key={data.repoName} {...data} />
-                        ))
-                    }
+                    <RecentContributionCards contributions={contributions} />
                 </div>
             </div>
             <div>
