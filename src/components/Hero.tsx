@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button } from './ui/button';
-import { ArrowBigDownIcon, DownloadIcon, GithubIcon, Linkedin, Mail } from 'lucide-react';
+import { ArrowBigDown, ArrowBigDownIcon, ArrowDown, DownloadIcon, GithubIcon, Linkedin, Mail } from 'lucide-react';
 import {
     Tooltip,
     TooltipContent,
@@ -8,21 +8,20 @@ import {
 } from "./ui/tooltip"
 import { BackgroundBeams } from './ui/shadcn-io/background-beams';
 import SkillCapsule from './SkillCapsule';
+import { motion } from 'framer-motion';
 
 const SocialIconCapsule = ({
     icon,
     content,
-    href,
-    className
+    href
 }: {
     icon: React.ReactNode,
     content: string,
-    href: string,
-    className?: string
+    href: string
 }) => {
     return (
-        <Tooltip >
-            <a href={href} target="_blank" rel="noopener noreferrer">
+        <Tooltip>
+            <a href={href} target="_blank" rel="noopener noreferrer" className='cursor-pointer'>
                 <TooltipTrigger asChild>
                     <Button variant="outline" className='h-12 w-12 rounded-full flex justify-center items-center p-0'>
                         {icon}
@@ -68,31 +67,61 @@ function Hero({ className }: { className?: string }) {
 
             <section className='lg:w-1/2 md:3/4 sm:mx-auto w-full px-3 flex flex-col justify-center items-center gap-8 min-h-screen'>
                 {/* Heading  */}
-                <div className="text-7xl text-center font-bold">
+                <motion.div
+                    className="text-7xl text-center font-bold"
+                    initial={{ y: -50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                >
                     <span> <div className=" text-2xl text-gray-500">Hello I'm a</div></span>
                     <span className='bg-gradient-to-b bg-clip-text text-transparent from-neutral-200 to-neutral-600 '>   Full Stack <br /> Developer</span>
-                </div>
+                </motion.div>
 
                 {/* Description */}
-                <p className="text-center text-xl md:text-2xl text-gray-400 font-medium">
+                <motion.p
+                    className="text-center text-xl md:text-2xl text-gray-400 font-medium"
+                    initial={{ y: 50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                >
                     Computer Science student building real-world projects and preparing for FAANG companies and GSoC 2025
-                </p>
+                </motion.p>
 
                 {/* Skills */}
-                <div className="flex flex-wrap justify-center items-baseline gap-4">
+                <motion.div
+                    className="flex flex-wrap justify-center items-baseline gap-4"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.4, type: 'spring', stiffness: 100 }}
+                >
                     {skills.map((skill) => (
                         <SkillCapsule key={skill} skill={skill} />
                     ))}
-                </div>
+                </motion.div>
 
                 {/* Call to Action Buttons */}
-                <div className="gap-2 flex items-center justify-center flex-wrap ">
-                    <Button variant="custom" className='text-xl h-12'>view my work <ArrowBigDownIcon /></Button>
-                    <Button variant="link" className='text-xl'><Mail className='scale-150' /> Get in touch</Button>
-                </div>
+                <motion.div
+                    className="gap-2 flex items-center justify-center flex-wrap "
+                    initial={{ y: 50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.6, type: 'spring', stiffness: 100 }}
+                >
+                    <Button variant="custom" className='text-xl h-12 cursor-pointer' onClick={() => {
+                        window.scrollTo({ top: document.getElementById("projects")?.offsetTop, behavior: 'smooth' });
+                    }}>view my work <ArrowDown /></Button>
+                    <Button variant="link" className='text-xl cursor-pointer' onClick={() => {
+                        window.scrollTo({ top: document.getElementById("contact")?.offsetTop, behavior: 'smooth' });
+                    }}><Mail className='scale-150' /> Get in touch</Button>
+                </motion.div>
 
                 {/* Social Media Icons */}
-                <div className=" flex justify-center gap-4 items-center">
+                <motion.div
+                    className=" flex justify-center gap-4 items-center"
+                    aria-label="Social Media Links"
+                    initial={{ y: 50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.8, type: 'spring', stiffness: 100 }}
+                >
                     {socialIcons.map((social) => (
 
                         <SocialIconCapsule
@@ -100,14 +129,15 @@ function Hero({ className }: { className?: string }) {
                             icon={social.icon}
                             content={social.content}
                             href={social.href}
-                            className=""
                         />
                     ))}
-                </div>
+                </motion.div>
 
                 {/* jumping button  */}
                 <div>
-                    <Button variant="ghost" className='animate-bounce'>
+                    <Button variant="ghost" className='animate-bounce' onClick={() => {
+                        window.scrollTo({ top: document.getElementById("about")?.offsetTop, behavior: 'smooth' });
+                    }}>
                         <ArrowBigDownIcon className='scale-150 text-gray-500' />
                     </Button>
                 </div>

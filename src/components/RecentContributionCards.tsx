@@ -21,14 +21,7 @@ const RecentContributionCards = ({ contributions }: { contributions: any[] }) =>
                                 <CardTitle className="flex items-center space-x-3 text-xl mb-2">
                                     <Github className="h-5 w-5" />
                                     <span>{contrib.repo}</span>
-                                    <Badge
-                                        className={`${contrib.status === 'Merged'
-                                            ? 'bg-success text-white'
-                                            : 'bg-warning text-black'
-                                            }`}
-                                    >
-                                        {contrib.status}
-                                    </Badge>
+                                    {contrib.status}
                                 </CardTitle>
                                 <CardDescription className="text-muted-foreground mb-3">
                                     {contrib.description}
@@ -39,9 +32,7 @@ const RecentContributionCards = ({ contributions }: { contributions: any[] }) =>
                                     <Star className="h-4 w-4 mr-1" />
                                     {contrib.stars}
                                 </div>
-                                <Badge variant="outline" className="border-border">
-                                    {contrib.language}
-                                </Badge>
+                                {contrib.language}
                             </div>
                         </div>
                     </CardHeader>
@@ -54,9 +45,7 @@ const RecentContributionCards = ({ contributions }: { contributions: any[] }) =>
                                 <p className="text-foreground">{contrib.myContribution}</p>
                             </div>
                             <div className="flex items-center justify-between">
-                                <Badge variant="secondary" className="bg-muted">
-                                    {contrib.type}
-                                </Badge>
+                                {contrib.type}
                                 <Button variant="outline" size="sm" className="border-border" asChild>
                                     <a href={`https://github.com/${contrib.repo}`} target="_blank" rel="noopener noreferrer">
                                         <Github className="mr-2 h-3 w-3" />

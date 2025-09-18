@@ -1,6 +1,6 @@
 import { GitBranchIcon, GithubIcon, Group, Medal, Star } from 'lucide-react'
 import React from 'react'
-import RecentContributionCards from './temp'
+import RecentContributionCards from './RecentContributionCards'
 import GithubHeatmap from './GithubHeatMap'
 import { Badge } from "./ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
@@ -71,28 +71,28 @@ const contributions = [
         repo: "facebook/react",
         description: "A declarative, efficient, and flexible JavaScript library for building user interfaces.",
         myContribution: "Fixed accessibility issues in form components and improved TypeScript definitions",
-        language: "JavaScript",
+        language: <Badge variant={"outline"} className='border-border bg-yellow-500'>JavaScript</Badge>,
         stars: "219k",
         status: "Merged",
-        type: "Bug Fix"
+        type: <Badge variant="destructive" className="border-border">Bug Fix</Badge>
     },
     {
         repo: "vercel/next.js",
         description: "The React Framework for the Web. Used by some of the world's largest companies.",
         myContribution: "Enhanced documentation for dynamic imports and contributed to performance optimizations",
-        language: "TypeScript",
+        language: <Badge variant={"outline"} className='border-border bg-blue-500'>TypeScript</Badge>,
         stars: "118k",
         status: "Under Review",
-        type: "Documentation"
+        type: <Badge variant={"default"} className='border-border bg-purple-500'>Documentation</Badge>
     },
     {
         repo: "tailwindlabs/tailwindcss",
         description: "A utility-first CSS framework for rapidly building custom designs.",
         myContribution: "Added new utility classes for modern CSS features and improved build performance",
-        language: "CSS",
+        language: <Badge variant={"outline"} className='border-border bg-purple-500'>CSS</Badge>,
         stars: "79k",
         status: "Merged",
-        type: "Feature"
+        type: <Badge variant={"default"} className='border-border bg-purple-500'>Feature</Badge>
     }
 ];
 

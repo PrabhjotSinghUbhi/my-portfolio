@@ -301,12 +301,18 @@ export default function Expertise({ className }: { className: string }) {
                         </motion.div>
                     ))}
                 </div>
-                <div className="border  rounded-2xl w-full mx-auto md:w-2/3  my-5 ">
+                <motion.div
+                    className="border mt-16 rounded-2xl w-full mx-auto md:w-2/3  py-5 "
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 400, delay: 1, type: "spring", stiffness: 100 }}
+                >
                     <h4 className='text-3xl text-center p-5 font-bold text-green-400'>Continuous Learning</h4>
                     <p className='text-wrap mx-8 text-center'>
                         I'm passionate about contributing to open source projects and staying updated with the latest technologies. Currently preparing for GSoC 2025 while continuously expanding my skill set to meet industry standards.
                     </p>
-                </div>
+                </motion.div>
             </div>
         </div>
     );

@@ -2,6 +2,7 @@ import { Brackets, GitBranchIcon, GitPullRequestArrowIcon, School2 } from 'lucid
 import React from 'react'
 import { cn } from "@/lib/utils";
 import { Particles } from './ui/shadcn-io/particles';
+import { motion } from 'framer-motion';
 
 const Points = ({ icon }: { icon: React.ReactNode }) => {
     return (
@@ -81,35 +82,65 @@ function AboutMe({ className }: { className?: string }) {
             />
 
             {/* About Me  */}
-            <div>
+            <motion.div
+                className="z-10"
+                initial={{ y: -50, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.5, delay: 0.1, type: 'spring', stiffness: 100 }}
+            >
                 <h2 className='text-5xl text-center font-extrabold'>About Me</h2>
                 <p className='text-center text-lg md:text-xl text-gray-400 font-medium max-w-3xl mx-auto mt-4'>
                     I'm a passionate full stack developer and computer science student dedicated to creating impactful software solutions. My journey combines academic excellence with hands-on project development, always aiming for the highest standards.
                 </p>
-            </div>
+            </motion.div>
 
-            <div className='flex flex-col lg:flex-row gap-16'>
+            <div
+                className='flex flex-col lg:flex-row gap-16'
+            >
                 <div>
                     {/* My Journey  */}
-                    <div >
+                    <motion.div
+                        initial={{ y: -50, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.2, type: 'spring', stiffness: 100 }}
+                    >
                         <h3 className='text-3xl text-start font-bold mt-8'>My Journey</h3>
                         <p className='text-start text-lg md:text-xl text-gray-400  font-medium max-w-3xl mx-auto mt-4'>
                             As a computer science student, I've been deeply immersed in the world of software development, constantly learning and applying new technologies. My passion lies in creating solutions that not only work but also provide exceptional user experiences.
 
                             I'm currently preparing for Google Summer of Code 2025 while building projects that demonstrate my capabilities for FAANG companies. Each project I create is an opportunity to push my boundaries and learn something new.
                         </p>
-                    </div>
+                    </motion.div>
                     {/* What drives me  */}
-                    <div>
-                        <h3 className='text-3xl text-start font-bold mt-8'>
+                    <motion.div
+                        initial={{ y: -50, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        transition={{ duration: 0.5, delay: 0.3, type: 'spring', stiffness: 100 }}
+                    >
+                        <motion.h3
+                            className='text-3xl text-start font-bold mt-8'
+                            initial={{ y: -20, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.4, type: 'spring', stiffness: 100 }}
+                        >
                             What drives me
-                        </h3>
-                        <p className='text-start text-lg md:text-xl text-gray-400 font-medium max-w-3xl mx-auto mt-4'>
+                        </motion.h3>
+                        <motion.p
+                            className='text-start text-lg md:text-xl text-gray-400 font-medium max-w-3xl mx-auto mt-4'
+                            initial={{ y: -20, opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 0.5, delay: 0.5, type: 'spring', stiffness: 100 }}
+                        >
                             I believe in the power of technology to solve real-world problems. Whether it's building a YouTube-like streaming platform or contributing to open source projects, I approach every challenge with curiosity and determination.
-                        </p>
-                    </div>
+                        </motion.p>
+                    </motion.div>
                 </div>
-                <div className='justify-self-start'>
+                <motion.div
+                    className='justify-self-start'
+                    initial={{ y: -50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.5, delay: 0.4, type: 'spring', stiffness: 100 }}
+                >
                     {/* Points  */}
                     <div className='my-5'>
                         {pointsData.map((point) => (
@@ -121,7 +152,7 @@ function AboutMe({ className }: { className?: string }) {
                             />
                         ))}
                     </div>
-                </div>
+                </motion.div>
             </div>
         </div>
     )
