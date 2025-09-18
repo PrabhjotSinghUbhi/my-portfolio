@@ -8,11 +8,12 @@ import OpenSource from './components/OpenSource';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import NavbarDesktop from './components/NavbarDesktop';
+import RootLayout from './components/MyThemeProvider';
 
 function App() {
 
   return (
-    <>
+    <RootLayout>
       <div className='md:hidden block'>
         <NavbarMobile />
       </div>
@@ -28,7 +29,7 @@ function App() {
       <OpenSource />
       <Contact />
       <Footer />
-    </>
+    </RootLayout>
 
   )
 }

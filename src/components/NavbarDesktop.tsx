@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from './ui/button'
 import { Award, Briefcase, Code, Github, Home, MessageCircle, User } from 'lucide-react';
+import { ThemeToggle } from './ToggleTheme';
 
 function NavbarDesktop() {
 
@@ -76,12 +77,17 @@ function NavbarDesktop() {
                         </div>
                     </div>
                 </section>
-                <section id='Menu' className='dark:text-white text-black '>
-                    <Button onClick={() => {
-                        window.scrollTo({ top: document.getElementById("contact")?.offsetTop, behavior: 'smooth' });
-                    }}>
-                        Let's Talk
-                    </Button>
+                <section id='Menu' className='dark:text-white text-black flex gap-4 items-center'>
+
+                    <ThemeToggle />
+
+                    <div>
+                        <Button onClick={() => {
+                            window.scrollTo({ top: document.getElementById("contact")?.offsetTop, behavior: 'smooth' });
+                        }}>
+                            Let's Talk
+                        </Button>
+                    </div>
                 </section>
             </aside>
         </div>
