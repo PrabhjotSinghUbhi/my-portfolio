@@ -68,7 +68,7 @@ export default function Hero({ className }: { className?: string }) {
     return (
         <div id="home" className={`z-50 pt-8 ${className}`}>
             <section className="lg:w-1/2 md:3/4 sm:mx-auto w-full px-3 flex flex-col justify-center items-center gap-8 min-h-screen">
-                <motion.div
+                <motion.h1
                     className="text-7xl text-center font-bold"
                     initial={{ y: -50, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
@@ -78,7 +78,7 @@ export default function Hero({ className }: { className?: string }) {
                         <div className=" text-2xl text-gray-500">Hello I'm a</div>
                     </span>
                     <span className="bg-gradient-to-b bg-clip-text text-transparent from-neutral-200 to-neutral-600 ">   Full Stack <br /> Developer</span>
-                </motion.div>
+                </motion.h1>
 
                 <motion.p
                     className="text-center text-xl md:text-2xl text-gray-400 font-medium"
@@ -87,7 +87,7 @@ export default function Hero({ className }: { className?: string }) {
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
                     Computer Science student building real-world projects and preparing for FAANG companies and GSoC 2025
-                </motion.p>
+                </motion.p> 
 
                 <motion.div
                     className="flex flex-wrap justify-center items-baseline gap-4"
