@@ -10,6 +10,7 @@ import Footer from './components/Footer';
 import NavbarDesktop from './components/NavbarDesktop';
 import RootLayout from './components/MyThemeProvider';
 
+
 function App() {
 
   return (
