@@ -1,25 +1,29 @@
 "use client"
 
-import { useTheme } from "next-themes"
 import { useEffect, useState } from "react"
 import { Moon, Sun } from "lucide-react"
 import { Button } from "./ui/button"
 import { motion, AnimatePresence } from "framer-motion"
 
 export function ThemeToggle() {
-    const { theme, setTheme } = useTheme()
+    const [theme, setTheme] = useState<"dark" | "light">()
     const [mounted, setMounted] = useState(false)
     const [animating, setAnimating] = useState(false)
     const [nextTheme, setNextTheme] = useState<"light" | "dark" | null>(null)
 
-    useEffect(() => setMounted(true), [])
-    if (!mounted) return null
-
-    const isDark = theme === "dark"
+    useEffect(() => {
+        const currentTheme = document.querySelector("html")?.classList.contains("dark") ? "dark" : "light"
+        setTheme(currentTheme)
+        setMounted(true)
+    }, [])
 
     const handleToggle = () => {
-        const newTheme = isDark ? "light" : "dark"
+        setTimeout(() => {
+            document.querySelector("html")?.classList.toggle("dark")
+        }, 300);
+        const newTheme = theme === "dark" ? "light" : "dark"
         setNextTheme(newTheme)
+        setTheme(newTheme)
         setAnimating(true)
     }
 
@@ -32,7 +36,7 @@ export function ThemeToggle() {
                 onClick={handleToggle}
                 className="relative z-20"
             >
-                {isDark ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
+                {theme === "dark" ? <Moon className="h-5 w-5" /> : <Sun className="h-5 w-5" />}
             </Button>
 
             {/* Expanding Circle */}

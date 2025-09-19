@@ -8,13 +8,13 @@ import OpenSource from './components/OpenSource';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import NavbarDesktop from './components/NavbarDesktop';
-import RootLayout from './components/MyThemeProvider';
-
+import { Toaster } from 'sonner';
 
 function App() {
 
   return (
-    <RootLayout>
+    <>
+    <Toaster />
       <div className='md:hidden block'>
         <NavbarMobile />
       </div>
@@ -30,7 +30,7 @@ function App() {
       <OpenSource />
       <Contact />
       <Footer />
-    </RootLayout>
+    </>
 
 
   )

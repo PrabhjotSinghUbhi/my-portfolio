@@ -1,9 +1,6 @@
-import { useState } from "react";
+import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
-import { Mail, PhoneCall, MapPin, Linkedin, Github, Twitter, Send } from "lucide-react";
+import { Mail, PhoneCall, MapPin, Linkedin, Github, Twitter } from "lucide-react";
 import { toast } from "sonner";
 import { motion } from "framer-motion";
 import MyForm from "./ContactForm";
@@ -58,11 +55,9 @@ const Contact = () => {
         <section id="contact" className="py-20 bg-background">
             <div className="container mx-auto px-6">
                 {/* Heading */}
-                <motion.div
+                <div
                     className="text-center mb-16"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+
                 >
                     <h2 className="text-4xl md:text-5xl font-bold mb-6">
                         Get In <span className="gradient-text">Touch</span>
@@ -71,12 +66,10 @@ const Contact = () => {
                         Ready to discuss opportunities, collaborate on projects, or just have a tech conversation? I'd love
                         to hear from you. Let's build something amazing together!
                     </p>
-                </motion.div>
+                </div>
 
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
+                <div
+
                     className="grid lg:grid-cols-3 gap-12"
                 >
                     {/* Contact Info */}
@@ -152,7 +145,7 @@ const Contact = () => {
                             </CardContent>
                         </Card>
                     </div>
-                </motion.div>
+                </div>
 
                 {/* Call to Action */}
                 <motion.div

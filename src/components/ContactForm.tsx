@@ -4,19 +4,19 @@ import { toast } from "sonner"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { z } from "zod"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import { cn } from "../lib/utils"
+import { Button } from "./ui/button"
 import {
     Form,
     FormControl,
-    FormDescription,
     FormField,
     FormItem,
     FormLabel,
     FormMessage,
 } from "./ui/form"
-import { Input } from "@/components/ui/input"
-import { Textarea } from "@/components/ui/textarea"
+import { Input } from "./ui/input"
+import { Textarea } from "./ui/textarea"
+import emailJs from "emailjs-com"
 
 const formSchema = z.object({
     fullName: z.string().min(2, {
@@ -50,12 +50,15 @@ export default function MyForm() {
         try {
             setIsSubmitting(true);
 
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 1000));
+            console.log('Form submitted:', { ...values, time: new Date().toLocaleDateString() });
+            const emailData = { ...values, time: new Date().toLocaleDateString() };
 
-            console.log('Form submitted:', values);
+            const resp = await emailJs.send("service_co9h71c", "template_ydzkq5o", emailData, "x9rvOFTpwa69txult");
+            console.log('EmailJS response:', resp);
 
-            toast.success("Message sent successfully! I'll get back to you soon.");
+            toast("Message sent successfully! I'll get back to you soon.", {
+                position: "top-center"
+            });
 
             // Reset form
             form.reset();
