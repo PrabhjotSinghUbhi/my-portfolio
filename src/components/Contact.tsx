@@ -9,27 +9,6 @@ import { motion } from "framer-motion";
 import MyForm from "./ContactForm";
 
 const Contact = () => {
-    const [formData, setFormData] = useState({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-    });
-    const [isSubmitting, setIsSubmitting] = useState(false);
-
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        await new Promise((resolve) => setTimeout(resolve, 1000));
-        toast("Message sent successfully!");
-        setFormData({ name: "", email: "", subject: "", message: "" });
-        setIsSubmitting(false);
-    };
-
     const contactInfo = [
         {
             icon: <Mail className="h-5 w-5" />,
@@ -193,7 +172,7 @@ const Contact = () => {
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                 <a
-                                    href="mailto:prabh.ubhi@gmail.com"
+                                    href="mailto:prabh.ubhi7042@gmail.com"
                                     className="bg-gradient-primary hover:opacity-90 text-primary-foreground px-4 py-3 rounded-md inline-flex items-center gap-2"
                                 >
                                     <Mail className="h-4 w-4" /> Email Me Directly
