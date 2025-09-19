@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     ExternalLink,
@@ -7,9 +6,8 @@ import {
     Calendar,
     Users,
     Code,
-    Sparkles,
     TrendingUp,
-    Award,
+    iiiiiiiiiiiiAward,
     Zap,
     Eye,
     Heart,

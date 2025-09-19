@@ -1,8 +1,5 @@
-import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, PhoneCall, MapPin, Linkedin, Github, Twitter } from "lucide-react";
-import { toast } from "sonner";
-import { motion } from "framer-motion";
+import { Mail, PhoneCall, MapPin, Linkedin, Github, Twitter } from "lucide-react";import { motion } from "framer-motion";
 import MyForm from "./ContactForm";
 
 const Contact = () => {

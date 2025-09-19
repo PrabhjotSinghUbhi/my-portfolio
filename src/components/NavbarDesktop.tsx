@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from './ui/button'
-import { Award, Briefcase, Code, Github, Home, MessageCircle, User } from 'lucide-react';
+import { Briefcase, Code, Github, Home, MessageCircle, User } from 'lucide-react';
 import { ThemeToggle } from './ToggleTheme';
 
 function NavbarDesktop() {
