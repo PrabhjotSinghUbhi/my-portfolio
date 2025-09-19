@@ -107,7 +107,7 @@ export default function Hero({ className }: { className?: string }) {
                     transition={{ duration: 0.5, delay: 0.6, type: 'spring', stiffness: 100 }}
                 >
                     <Button
-                        variant="custom"
+                        variant="default"
                         className="text-xl h-12 cursor-pointer"
                         onClick={() => {
                             window.scrollTo({ top: document.getElementById('projects')?.offsetTop, behavior: 'smooth' })

@@ -7,13 +7,14 @@ import {
     Users,
     Code,
     TrendingUp,
-    iiiiiiiiiiiiAward,
+    Award,
     Zap,
     Eye,
     Heart,
     Play,
     ArrowRight,
 } from 'lucide-react';
+import { useState } from 'react';
 
 // Types
 interface ProjectType {

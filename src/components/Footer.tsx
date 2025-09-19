@@ -1,5 +1,5 @@
 import { Button } from "./ui/button";
-import { Github, Linkedin, Twitter, Mail, Heart, ArrowUp }j from "lucide-react";
+import { Github, Linkedin, Twitter, Mail, Heart, ArrowUp } from "lucide-react";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
