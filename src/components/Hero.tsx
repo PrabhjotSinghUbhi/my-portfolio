@@ -30,7 +30,7 @@ const SocialIconCapsule = ({ icon, content, href }: { icon: React.ReactElement; 
             {/* Icon capsule (styled like your Button but not using the Button component inside an <a>) */}
             <div className="h-12 w-12 rounded-full flex justify-center items-center p-0 border border-neutral-700 transition-transform transform-gpu will-change-transform group-hover:scale-105">
                 {/* normalize icon size so we don't rely on scale transforms which may be heavy */}
-                {React.isValidElement(icon) ? React.cloneElement(icon, { className: 'h-5 w-5' }) : icon}
+                {React.isValidElement(icon) ? React.cloneElement(icon) : icon}
             </div>
 
             {/* CSS-only tooltip (appears on hover) */}
