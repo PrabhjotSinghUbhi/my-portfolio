@@ -494,13 +494,13 @@ export default function FeaturedProjects() {
                 {/* Header Section */}
                 <motion.div
                     initial={{ opacity: 0, y: -40 }}
-                    animate={{ opacity: 1, y: 0 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8 }}
                     className="text-center mb-20"
                 >
                     <motion.div
                         initial={{ scale: 0.9 }}
-                        animate={{ scale: 1 }}
+                        whileInView={{ scale: 1 }}
                         transition={{
                             duration: 1,
                             type: 'spring',
@@ -526,7 +526,12 @@ export default function FeaturedProjects() {
                 </motion.div>
 
                 {/* Projects Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+                <motion.div
+                    className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.8, type: 'spring', stiffness: 80, delay: 0.2 }}
+                >
                     {projects.map((project, index) => (
                         <ProjectCard
                             key={project.id}
@@ -534,13 +539,13 @@ export default function FeaturedProjects() {
                             index={index}
                         />
                     ))}
-                </div>
+                </motion.div>
 
                 {/* Call to Action */}
-                <motion.div
+                {/* <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 2.6, duration: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 2.6, duration: 1 }}
                     className="text-center mt-16"
                 >
                     <motion.button
@@ -554,7 +559,7 @@ export default function FeaturedProjects() {
                             className="group-hover:translate-x-1 transition-transform"
                         />
                     </motion.button>
-                </motion.div>
+                </motion.div> */}
             </div>
         </div>
     );

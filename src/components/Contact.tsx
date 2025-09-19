@@ -5,6 +5,7 @@ import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Mail, Phone, MapPin, Linkedin, Github, Twitter, Send, MessageCircle, PhoneCall, Icon } from "lucide-react";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -86,7 +87,12 @@ const Contact = () => {
     return (
         <section id="contact" className="py-20 bg-background">
             <div className="container mx-auto px-6">
-                <div className="text-center mb-16 animate-fade-in">
+                <motion.div
+                    className="text-center mb-16 animate-fade-in"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, type: 'spring', stiffness: 100 }}
+                >
                     <h2 className="text-4xl md:text-5xl font-bold mb-6">
                         Get In <span className="gradient-text">Touch</span>
                     </h2>
@@ -94,9 +100,12 @@ const Contact = () => {
                         Ready to discuss opportunities, collaborate on projects, or just have a tech conversation?
                         I'd love to hear from you. Let's build something amazing together!
                     </p>
-                </div>
+                </motion.div>
 
-                <div className="grid lg:grid-cols-3 gap-12">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, type: 'spring', stiffness: 100 }} className="grid lg:grid-cols-3 gap-12">
                     {/* Contact Information */}
                     <div className="lg:col-span-1 space-y-8 animate-fade-in-up">
                         <Card className="border-border bg-gradient-secondary">
@@ -130,12 +139,18 @@ const Contact = () => {
                                 </div>
 
                                 {/* Social Links */}
-                                <div className="pt-6 border-t border-border">
+                                <motion.div
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, type: 'spring', stiffness: 100 }} className="pt-6 border-t border-border">
                                     <h4 className="font-semibold mb-4">Follow Me</h4>
                                     <div className="flex space-x-4">
                                         {socialLinks.map((social, index) => (
-                                            <a
-                                                key={index}
+                                            <motion.a
+                                                initial={{ opacity: 0, y: 20 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                transition={{ delay: index * 0.1, duration: 0.6, type: 'spring', stiffness: 100 }}
+                                                key={social.label}
                                                 href={social.href}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
@@ -143,13 +158,15 @@ const Contact = () => {
                                                 title={social.label}
                                             >
                                                 <social.icon className="h-5 w-5" />
-                                            </a>
+                                            </motion.a>
                                         ))}
                                     </div>
-                                </div>
+                                </motion.div>
 
                                 {/* Availability */}
-                                <div className="pt-6 border-t border-border">
+                                <motion.div initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.6, type: 'spring', stiffness: 100 }} className="pt-6 border-t border-border">
                                     <div className="flex items-center space-x-3">
                                         <div className="w-3 h-3 bg-success rounded-full animate-pulse"></div>
                                         <span className="text-sm font-medium">Available for new opportunities</span>
@@ -157,13 +174,16 @@ const Contact = () => {
                                     <p className="text-sm text-muted-foreground mt-2">
                                         Open to full-time SDE roles, internships, and freelance projects
                                     </p>
-                                </div>
+                                </motion.div>
                             </CardContent>
                         </Card>
                     </div>
 
                     {/* Contact Form */}
-                    <div className="lg:col-span-2 animate-slide-in-right">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, type: 'spring', stiffness: 100 }} className="lg:col-span-2 animate-slide-in-right">
                         <Card className="border-border bg-card/50 backdrop-blur-sm">
                             <CardHeader>
                                 <CardTitle className="text-2xl">Send a Message</CardTitle>
@@ -237,29 +257,31 @@ const Contact = () => {
 
                                     <Button
                                         type="submit"
+                                        variant={"default"}
                                         disabled={isSubmitting}
-                                        className="w-full bg-gradient-primary hover:opacity-90 text-primary-foreground font-semibold py-3"
+                                        className="w-full bg-[#fff] hover:opacity-90 font-semibold py-3"
                                     >
                                         {isSubmitting ? (
-                                            <div className="flex items-center space-x-2">
-                                                <div className="w-4 h-4 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin"></div>
-                                                <span>Sending...</span>
-                                            </div>
+
+                                            <span>Sending...</span>
                                         ) : (
-                                            <div className="flex items-center w-full space-x-2">
+                                            <>
                                                 <Send className="h-4 w-4" />
                                                 <span>Send Message</span>
-                                            </div>
+                                            </>
                                         )}
                                     </Button>
                                 </form>
                             </CardContent>
                         </Card>
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
 
                 {/* Call to Action */}
-                <div className="text-center mt-16 animate-fade-in-up">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, type: 'spring', stiffness: 100 }} className="text-center mt-16 animate-fade-in-up">
                     <Card className="inline-block border-border bg-gradient-primary/10 backdrop-blur-sm">
                         <CardContent className="p-8">
                             <h3 className="text-2xl font-semibold mb-4">
@@ -284,7 +306,7 @@ const Contact = () => {
                             </div>
                         </CardContent>
                     </Card>
-                </div>
+                </motion.div>
             </div>
         </section>
     );

@@ -5,6 +5,7 @@ import GithubHeatmap from './GithubHeatMap'
 import { Badge } from "./ui/badge"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
 import { Button } from './ui/button'
+import { motion } from 'framer-motion'
 
 const gsocOrgs = [
     {
@@ -54,7 +55,7 @@ const contributionData = [
     }
 ]
 
-const ContributionCard = ({ icon, number, contributionType }) => {
+const ContributionCard = ({ icon, number, contributionType }: { icon: React.ReactNode, number: number, contributionType: string }) => {
     return (
         <div className="">
             <div className="flex flex-col items-center justify-center p-4 border rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
@@ -98,100 +99,165 @@ const contributions = [
 
 function OpenSource() {
     return (
-        <div id='opensource' className='my-20 pt-24 px-5 md:px-20 lg:px-40'>
+        <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 1 }}
+            viewport={{ once: true }}
+            id='opensource'
+            className='pt-24 px-5 md:px-20 lg:px-40'>
             <div className=''>
                 <div>
-                    <h3 className='text-5xl text-center font-bold mb-4 '>
+                    <motion.h3
+                        className='text-5xl text-center font-bold mb-4 '
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1 }}
+                    >
                         Open Source Contributions
-                    </h3>
-                    <p className='text-wrap text-gray-400 mb-8 text-center max-w-3xl mx-auto'>
+                    </motion.h3>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        viewport={{ once: true }}
+                        className='text-wrap text-gray-400 mb-8 text-center max-w-3xl mx-auto'>
                         Contributing to the open source community and preparing for Google Summer of Code 2025. Building meaningful relationships with maintainers and learning from industry experts.
-                    </p>
+                    </motion.p>
                 </div>
 
-                <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6'>
+                <motion.div
+                    initial={{ opacity: 0, y: 60, rotateY: -15 }}
+                    whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+                    transition={{
+                        duration: 0.8,
+                        type: "spring",
+                        stiffness: 80
+                    }}
+                    className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6'>
                     {
                         contributionData.map((data) => (
                             <ContributionCard key={data.number} icon={data.icon} number={data.number} contributionType={data.contributionType}
                             />
                         ))
                     }
-                </div>
+                </motion.div>
             </div>
-            <div>
-                <div className='my-20 px-5 md:px-20 lg:px-40'>
-                    <h3 className='text-5xl text-center font-bold mb-4 '>
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2, staggerChildren: 0.2, type: "spring", stiffness: 80 }}
+                className='mt-16'>
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    viewport={{ once: true }}
+                    className='mt-20 px-5 md:px-20 lg:px-40'>
+                    <h3
+                        className='text-5xl text-center font-bold mb-4 '>
                         Recent Contributions
                     </h3>
-                    <p className='text-wrap text-gray-400 mb-8 text-center max-w-3xl mx-auto'>
+                    <p
+                        className='text-wrap text-gray-400 mb-8 text-center max-w-3xl mx-auto'>
                         Here are some of my recent contributions to open source projects. I actively participate in code reviews, bug fixes, and feature enhancements.
                     </p>
-                </div>
-                <div className='md:flex justify-center mb-10 hidden'>
+                </motion.div>
+                <motion.div
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1.5 }}
+                    className='md:flex justify-center mb-10 hidden'>
                     <GithubHeatmap />
-                </div>
+                </motion.div>
                 <div className='flex flex-col gap-6 px-5 md:px-20 lg:px-40 mb-20'>
                     <RecentContributionCards contributions={contributions} />
                 </div>
-            </div>
+            </motion.div>
             <div>
                 <div className="space-y-8">
                     <div className="text-center">
-                        <h3 className="text-3xl font-bold mb-4">
+                        <motion.h3
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.2, duration: 0.6 }}
+                            viewport={{ once: true }}
+                            className="text-3xl font-bold mb-4">
                             <span className="gradient-text">GSoC 2025</span> Preparation
-                        </h3>
-                        <p className="text-muted-foreground max-w-2xl mx-auto">
+                        </motion.h3>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.4 }}
+                            viewport={{ once: true }}
+                            className="text-muted-foreground max-w-2xl mx-auto">
                             Actively researching and contributing to organizations for Google Summer of Code 2025.
                             Building relationships with mentors and understanding project requirements.
-                        </p>
+                        </motion.p>
                     </div>
 
-                    <div className="grid md:grid-cols-3 gap-6">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        viewport={{ once: true }}
+                        className="grid md:grid-cols-3 gap-6">
                         {gsocOrgs.map((org, index) => (
-                            <Card
-                                key={index}
-                                className="card-hover border-border bg-gradient-accent/5 backdrop-blur-sm animate-slide-in-right"
-                                style={{ animationDelay: `${index * 0.1}s` }}
+                            <motion.div key={org.name}
+                                initial={{ opacity: 0, x: 50 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
+                                viewport={{ once: true }}
                             >
-                                <CardHeader>
-                                    <CardTitle className="text-lg">{org.name}</CardTitle>
-                                    <CardDescription className="text-muted-foreground">
-                                        {org.project}
-                                    </CardDescription>
-                                </CardHeader>
-                                <CardContent className="space-y-4">
-                                    <p className="text-sm text-muted-foreground">
-                                        {org.description}
-                                    </p>
-                                    <div className="flex items-center justify-between">
-                                        <Badge
-                                            className={`${org.status === 'Applied'
-                                                ? 'bg-green-500 text-white'
-                                                : org.status === 'Researching'
-                                                    ? 'bg-warning text-black'
-                                                    : 'bg-primary text-white'
-                                                } px-2 py-1 text-sm rounded-full
+                                <Card
+                                    className="card-hover border-border bg-gradient-accent/5 backdrop-blur-sm animate-slide-in-right"
+                                    style={{ animationDelay: `${index * 0.1}s` }}
+                                >
+                                    <CardHeader>
+                                        <CardTitle className="text-lg">{org.name}</CardTitle>
+                                        <CardDescription className="text-muted-foreground">
+                                            {org.project}
+                                        </CardDescription>
+                                    </CardHeader>
+                                    <CardContent className="space-y-4">
+                                        <p className="text-sm text-muted-foreground">
+                                            {org.description}
+                                        </p>
+                                        <div className="flex items-center justify-between">
+                                            <Badge
+                                                className={`${org.status === 'Applied'
+                                                    ? 'bg-green-500 text-white'
+                                                    : org.status === 'Researching'
+                                                        ? 'bg-warning text-black'
+                                                        : 'bg-primary text-white'
+                                                    } px-2 py-1 text-sm rounded-full
                                                 ${org.status === 'Preparing' ? 'bg-green-500 text-white' :
-                                                    org.status === 'Researching' ? 'bg-yellow-300 text-black' :
-                                                        'bg-blue-500 text-white'
-                                                } ${org.status === "Preparing" ? 'bg-blue-500 text-white' : ''
-                                                } px-2 py-1 text-sm rounded-full
+                                                        org.status === 'Researching' ? 'bg-yellow-300 text-black' :
+                                                            'bg-blue-500 text-white'
+                                                    } ${org.status === "Preparing" ? 'bg-blue-500 text-white' : ''
+                                                    } px-2 py-1 text-sm rounded-full
                                                 `}
-                                        >
-                                            {org.status}
-                                        </Badge>
-                                        <Badge className="border-border ">
-                                            {org.focus}
-                                        </Badge>
-                                    </div>
-                                </CardContent>
-                            </Card>
+                                            >
+                                                {org.status}
+                                            </Badge>
+                                            <Badge className="border-border ">
+                                                {org.focus}
+                                            </Badge>
+                                        </div>
+                                    </CardContent>
+                                </Card>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
 
                 {/* Call to Action */}
-                <div className="text-center mt-16">
+                <motion.div className="text-center mt-16"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    viewport={{ once: true }}
+                >
                     <Card className="inline-block border-border bg-gradient-primary/10 backdrop-blur-sm">
                         <CardContent className="p-8">
                             <h3 className="text-2xl font-semibold mb-4">
@@ -203,17 +269,17 @@ function OpenSource() {
                             </p>
                             <Button variant={"default"} className="bg-gradient-primary" asChild>
                                 <a href="https://github.com/PrabhjotSinghUbhi" target="_blank" rel="noopener noreferrer"
-                                    className='bg-gradient-to-br from-[#333] to-white text-white px-4 py-2 rounded-md flex items-center justify-center hover:scale-105 transition-transform'>
+                                    className='bg-gradient-to-br from-[#000] to-[#333] text-white px-4 py-2 rounded-md flex items-center justify-center hover:scale-105 transition-transform'>
                                     <GithubIcon className="mr-2 h-4 w-4" />
                                     Follow on GitHub
                                 </a>
                             </Button>
                         </CardContent>
                     </Card>
-                </div>
+                </motion.div>
 
             </div>
-        </div>
+        </motion.div>
     )
 }
 

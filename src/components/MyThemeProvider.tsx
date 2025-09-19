@@ -4,7 +4,7 @@ import type { ReactNode } from "react"
 export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body>
+            <body className="overflow-x-hidden">
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
                     {children}
                 </ThemeProvider>
