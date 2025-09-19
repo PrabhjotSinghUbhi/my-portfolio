@@ -9,7 +9,7 @@ function NavbarMobile() {
         <aside className='fixed border-b-1 border-neutral-500 top-0 left-0 right-0 h-16  bg-blend-luminosity text-3xl flex justify-between items-center px-6 py-3 z-50 backdrop-blur-md '>
             <section id='logo' className='font-extrabold gradient-text text-black dark:text-white '>
                 <span>
-                    <img src="/black_braces.svg" alt="Braces logo" />
+                    <img src="/grp1.png" alt="Braces logo" />
                 </span>
                 DEV
             </section>
