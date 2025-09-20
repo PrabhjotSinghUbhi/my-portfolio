@@ -2,6 +2,7 @@ import { Github, Star } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
 import { motion } from "framer-motion";
+import { Badge } from "./ui/badge";
 
 const RecentContributionCards = ({ contributions }: { contributions: any[] }) => {
     return <div className="space-y-8 mb-16">
@@ -38,23 +39,39 @@ const RecentContributionCards = ({ contributions }: { contributions: any[] }) =>
                                     <CardTitle className="flex items-center space-x-3 text-xl mb-2">
                                         <Github className="h-5 w-5" />
                                         <span>{contrib.repo}</span>
-                                        {contrib.status}
+                                        <Badge className={`ml-2 ${contrib.status === 'Merged' ? 'bg-green-100 text-green-800' : contrib.status === 'Under Review' ? 'bg-yellow-100 text-yellow-800' : 'bg-gray-100 text-gray-800'}`}>
+                                            {contrib.status}
+                                        </Badge>
                                     </CardTitle>
                                     <CardDescription className="text-muted-foreground mb-3">
                                         {contrib.description}
                                     </CardDescription>
                                 </div>
-                                <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                                <div className="hidden sm:flex items-center space-x-4 text-sm text-muted-foreground">
                                     <div className="flex items-center">
                                         <Star className="h-4 w-4 mr-1" />
                                         {contrib.stars}
                                     </div>
-                                    {contrib.language}
+                                    <div className="">
+                                        {contrib.language}
+                                    </div>
                                 </div>
                             </div>
                         </CardHeader>
                         <CardContent>
                             <div className="space-y-4">
+                                <div className="sm:hidden flex items-center justify-between mb-2">
+                                    <div className="flex items-center space-x-4 text-sm text-muted-foreground">
+                                        <div className="flex items-center">
+                                            <Star className="h-4 w-4 mr-1" />
+                                            {contrib.stars}
+                                        </div>
+                                        <div className="">
+                                            {contrib.language}
+                                        </div>
+                                    </div>
+                                </div>
+
                                 <div>
                                     <h4 className="font-semibold text-sm text-muted-foreground uppercase tracking-wider mb-2">
                                         My Contribution
