@@ -36,7 +36,7 @@ const RecentContributionCards = ({ contributions }: { contributions: any[] }) =>
                         <CardHeader>
                             <div className="flex items-start justify-between">
                                 <div className="flex-1">
-                                    <CardTitle className="flex items-center space-x-3 text-xl mb-2">
+                                    <CardTitle className="flex flex-col gap-2 md:flex-row md:items-center space-x-3 text-xl mb-2">
                                         <Github className="h-5 w-5" />
                                         <span>{contrib.repo}</span>
                                         <Badge className={`ml-2 ${contrib.status === 'Merged' ? 'bg-green-100 text-green-800' : contrib.status === 'Under Review' ? 'bg-yellow-100 text-yellow-800' : 'bg-gray-100 text-gray-800'}`}>

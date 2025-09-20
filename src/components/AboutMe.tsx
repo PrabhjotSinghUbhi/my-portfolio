@@ -88,7 +88,7 @@ function AboutMe({ className }: { className?: string }) {
                 whileInView={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.1, type: 'spring', stiffness: 100 }}
             >
-                <h2 className='text-5xl text-center font-extrabold'>About Me</h2>
+                <h2 className='text-4xl md:text-5xl text-center font-extrabold'>About Me</h2>
                 <p className='text-center text-lg md:text-xl text-gray-400 font-medium max-w-3xl mx-auto mt-4'>
                     I'm a passionate full stack developer and computer science student dedicated to creating impactful software solutions. My journey combines academic excellence with hands-on project development, always aiming for the highest standards.
                 </p>

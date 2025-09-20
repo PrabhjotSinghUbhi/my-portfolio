@@ -109,7 +109,7 @@ function OpenSource() {
             <div className=''>
                 <div>
                     <motion.h3
-                        className='text-5xl text-center font-bold mb-4 '
+                        className='text-4xl md:text-5xl text-center font-bold mb-4 '
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
@@ -155,7 +155,7 @@ function OpenSource() {
                     viewport={{ once: true }}
                     className='mt-20 px-5 md:px-20 lg:px-40'>
                     <h3
-                        className='text-5xl text-center font-bold mb-4 '>
+                        className='text-4xl md:text-5xl text-center font-bold mb-4 '>
                         Recent Contributions
                     </h3>
                     <p

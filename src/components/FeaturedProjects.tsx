@@ -512,7 +512,7 @@ export default function FeaturedProjects() {
                         <TrendingUp size={16} />
                     </motion.div>
 
-                    <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent">
+                    <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-foreground via-foreground to-foreground/60 bg-clip-text text-transparent">
                         Featured Projects
                     </h1>
 
