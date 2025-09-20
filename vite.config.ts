@@ -4,6 +4,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from 'vite-plugin-sitemap';
+import { visualizer } from "rollup-plugin-visualizer"
 
 // Polyfill __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -13,6 +14,8 @@ export default defineConfig({
   plugins: [react(), tailwindcss(), sitemap({
     hostname: 'https://prabh.me',
     outDir: './dist'
+  }), visualizer({
+    open: true
   })],
   resolve: {
     alias: {

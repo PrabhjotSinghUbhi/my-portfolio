@@ -186,6 +186,7 @@ function ProjectCard({
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                     onLoad={() => setImageLoaded(true)}
+                    loading='lazy'
                 />
 
                 {/* Image overlay with stats */}

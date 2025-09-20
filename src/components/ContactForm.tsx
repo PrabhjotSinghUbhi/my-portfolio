@@ -49,16 +49,14 @@ export default function MyForm() {
         try {
             setIsSubmitting(true);
 
-            console.log('Form submitted:', { ...values, time: new Date().toLocaleDateString() });
             const emailData = { ...values, time: new Date().toLocaleDateString() };
 
-            const resp = await emailJs.send(
+            await emailJs.send(
                 import.meta.env.VITE_EMAILJS_SERVICE_ID,
                 import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
                 emailData,
                 import.meta.env.VITE_EMAILJS_PUBLIC_KEY
             );
-            console.log('EmailJS response:', resp);
 
             toast("Message sent successfully! I'll get back to you soon.", {
                 position: "top-center"

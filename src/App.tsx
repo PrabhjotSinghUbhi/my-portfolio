@@ -8,12 +8,13 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import NavbarDesktop from './components/NavbarDesktop';
 import { Toaster } from 'sonner';
+import { Suspense } from 'react';
 
 function App() {
 
   return (
     <>
-    <Toaster />
+      <Toaster />
       <div className='md:hidden block'>
         <NavbarMobile />
       </div>
@@ -23,12 +24,22 @@ function App() {
       <div>
         <Hero className='' />
       </div>
-      <AboutMe className="relative z-10 pt-18" />
-      <Expertise className="mt-10" />
-      <FeaturedProjects />
-      <OpenSource />
-      <Contact />
-      <Footer />
+      <Suspense>
+        <AboutMe className="relative z-10 pt-18" />
+      </Suspense>
+      <Suspense>
+        <Expertise className="mt-10" />
+      </Suspense>
+      <Suspense>
+        <FeaturedProjects />
+      </Suspense>
+      <Suspense>
+        <OpenSource />
+      </Suspense>
+      <Suspense>
+        <Contact />
+        <Footer />
+      </Suspense>
     </>
 
 
