@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Mail, PhoneCall, MapPin, Linkedin, Github, Twitter } from "lucide-react";import { motion } from "framer-motion";
+import { Mail, PhoneCall, MapPin, Linkedin, Github, Twitter } from "lucide-react"; import { motion } from "framer-motion";
 import MyForm from "./ContactForm";
 
 const Contact = () => {
@@ -71,7 +71,7 @@ const Contact = () => {
                 >
                     {/* Contact Info */}
                     <div className="lg:col-span-1 space-y-8">
-                        <Card className="border-border bg-gradient-secondary">
+                        <Card className="border-border bg-gradient-secondary w-fit">
                             <CardHeader>
                                 <CardTitle className="text-2xl">Let's Connect</CardTitle>
                                 <CardDescription className="text-muted-foreground">
