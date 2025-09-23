@@ -414,78 +414,85 @@ function ProjectCard({
 // Main Featured Projects Component
 export default function FeaturedProjects() {
     const projects: ProjectType[] = [
+
         {
-            id: '1',
-            title: 'AI-Powered Analytics Dashboard',
-            description:
-                'A comprehensive analytics platform with real-time data visualization and machine learning insights.',
-            longDescription:
-                'A comprehensive analytics platform that combines real-time data visualization with advanced machine learning insights. Features include predictive analytics, custom dashboard creation, collaborative workspaces, and automated reporting. Built with modern web technologies and optimized for performance.',
-            image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+            id: "1",
+            title: "AI-Powered Analytics Dashboard",
+            description: "A comprehensive analytics platform with real-time data visualization and machine learning insights.",
+            longDescription: "A comprehensive analytics platform that combines real-time data visualization with advanced machine learning insights. Features include predictive analytics, custom dashboard creation, collaborative workspaces, and automated reporting. Built with modern web technologies and optimized for performance.",
+            image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop",
             technologies: [
-                'React',
-                'TypeScript',
-                'D3.js',
-                'Python',
-                'TensorFlow',
-                'PostgreSQL',
-                'Redis',
-                'Docker',
+                "React",
+                "TypeScript",
+                "D3.js",
+                "Python",
+                "TensorFlow",
+                "PostgreSQL",
+                "Redis",
+                "Docker"
             ],
-            category: 'Web Application',
-            status: 'completed',
+            category: "Web Application",
+            status: "completed",
             featured: true,
-            stats: { stars: 234, views: 12500, likes: 89 },
-            links: {
-                demo: 'https://demo.example.com',
-                github: 'https://github.com/example',
-                case_study: 'https://case-study.example.com',
+            stats: {
+                "stars": 234,
+                "views": 12500,
+                "likes": 89
             },
-            year: '2024',
+            links: {
+                "demo": "https://demo.example.com",
+                "github": "https://github.com/example",
+                "case_study": "https://case-study.example.com"
+            },
+            year: "2024",
             team_size: 4,
-            duration: '6 months',
+            duration: "6 months",
             highlights: [
-                'Reduced data processing time by 75% using optimized algorithms',
-                'Supports real-time analysis of 1M+ data points',
-                'Won "Best Data Visualization" at TechCrunch Disrupt 2024',
-                'Featured in top 10 analytics tools by Forbes',
-            ],
+                "Reduced data processing time by 75% using optimized algorithms",
+                "Supports real-time analysis of 1M+ data points",
+                "Won \"Best Data Visualization\" at TechCrunch Disrupt 2024",
+                "Featured in top 10 analytics tools by Forbes"
+            ]
         },
         {
-            id: '2',
-            title: 'Mobile Fitness Companion',
-            description:
-                'Cross-platform mobile app for fitness tracking with social features and AI-powered workout recommendations.',
-            longDescription:
-                'A comprehensive fitness tracking application that goes beyond basic step counting. Features include AI-powered workout recommendations, social challenges, nutrition tracking, progress analytics, and integration with popular fitness devices. The app uses machine learning to adapt to user preferences and optimize workout plans.',
-            image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=400&fit=crop',
+            id: "2",
+            title: "Stream Sphere - MERN Streaming Platform",
+            description: "A modern MERN-based streaming platform that enables users to watch, upload, and manage video content seamlessly with a responsive UI and real-time playback.",
+            longDescription: "Stream Sphere is a powerful, all-in-one platform designed to provide real-time insights through interactive dashboards and AI-driven analytics. The project focuses on making complex data accessible, actionable, and visually engaging for businesses, developers, and decision-makers.",
+            image: "https://res.cloudinary.com/prabhjotsingh/image/upload/v1757937893/croppedLogo_yjocsl.png",
             technologies: [
-                'React Native',
-                'Node.js',
-                'MongoDB',
-                'TensorFlow Lite',
-                'Socket.io',
-                'AWS',
-                'Stripe',
+                "React",
+                "Javascript",
+                "MongoDB",
+                "Express",
+                "Node",
+                "Cloudinary",
+                "ShadCN",   
             ],
-            category: 'Mobile App',
-            status: 'in-progress',
+            category: "Web Application",
+            status: "completed",
             featured: true,
-            stats: { views: 8900, likes: 156, stars: 189 },
-            links: {
-                demo: 'https://app.example.com',
-                github: 'https://github.com/example',
+            stats: {
+                "stars": 234,
+                "views": 12500,
+                "likes": 89
             },
-            year: '2024',
-            team_size: 3,
-            duration: '8 months',
+            links: {
+                "demo": "https://streamsphere.prabh.me",
+                "github": "https://github.com/PrabhjotSinghUbhi/StreamSphere.git",
+                "case_study": "https://streamsphere.prabh.me"
+            },
+            year: "2024",
+            team_size: 4,
+            duration: "6 months",
             highlights: [
-                'Over 50K active users in beta testing',
-                'Average user engagement: 25 minutes per session',
-                'Featured in Apple App Store "New & Noteworthy"',
-                'Integrated with 15+ fitness device brands',
-            ],
+                "Reduced data processing time by 75% using optimized algorithms",
+                "Supports real-time analysis of 1M+ data points",
+                "Won \"Best Data Visualization\" at TechCrunch Disrupt 2024",
+                "Featured in top 10 analytics tools by Forbes"
+            ]
         }
+
     ];
 
     return (
