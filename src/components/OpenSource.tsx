@@ -57,11 +57,11 @@ const contributionData = [
 
 const ContributionCard = ({ icon, number, contributionType }: { icon: React.ReactNode, number: number, contributionType: string }) => {
     return (
-        <div className="">
-            <div className="flex flex-col items-center justify-center p-4 border rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-                <div className="text-4xl mb-2">{icon}</div>
-                <div className="text-2xl font-bold">{number}</div>
-                <div className="text-gray-600">{contributionType}</div>
+        <div className="w-full">
+            <div className="flex flex-col items-center justify-center p-3 sm:p-4 border rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 min-h-[120px]">
+                <div className="text-3xl sm:text-4xl mb-2">{icon}</div>
+                <div className="text-xl sm:text-2xl font-bold">{number}</div>
+                <div className="text-gray-600 text-sm sm:text-base text-center">{contributionType}</div>
             </div>
         </div>
     )
@@ -105,11 +105,11 @@ function OpenSource() {
             transition={{ duration: 1 }}
             viewport={{ once: true }}
             id='opensource'
-            className='pt-24 px-5 md:px-20 lg:px-40'>
-            <div className=''>
+            className='pt-16 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 max-w-full w-full overflow-x-hidden'>
+            <div>
                 <div>
                     <motion.h3
-                        className='text-4xl md:text-5xl text-center font-bold mb-4 '
+                        className='text-3xl sm:text-4xl md:text-5xl text-center font-bold mb-4 '
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1 }}
@@ -126,6 +126,7 @@ function OpenSource() {
                     </motion.p>
                 </div>
 
+                {/* Responsive grid with proper mobile handling */}
                 <motion.div
                     initial={{ opacity: 0, y: 60, rotateY: -15 }}
                     whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
@@ -134,11 +135,12 @@ function OpenSource() {
                         type: "spring",
                         stiffness: 80
                     }}
-                    className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6'>
+                    className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 w-full max-w-full'>
                     {
                         contributionData.map((data) => (
-                            <ContributionCard key={data.number} icon={data.icon} number={data.number} contributionType={data.contributionType}
-                            />
+                            <div className='w-full' key={data.number}>
+                                <ContributionCard icon={data.icon} number={data.number} contributionType={data.contributionType} />
+                            </div>
                         ))
                     }
                 </motion.div>
@@ -147,15 +149,15 @@ function OpenSource() {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.2, staggerChildren: 0.2, type: "spring", stiffness: 80 }}
-                className='mt-16'>
+                className='mt-12 sm:mt-16 w-full max-w-full'>
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className='mt-20 px-5 md:px-20 lg:px-40'>
+                    className='mt-12 sm:mt-20 w-full max-w-full'>
                     <h3
-                        className='text-4xl md:text-5xl text-center font-bold mb-4 '>
+                        className='text-3xl sm:text-4xl md:text-5xl text-center font-bold mb-4 '>
                         Recent Contributions
                     </h3>
                     <p
@@ -170,19 +172,19 @@ function OpenSource() {
                     className='md:flex justify-center mb-10 hidden'>
                     <GithubHeatmap />
                 </motion.div>
-                <div className='flex flex-col gap-6 px-5 md:px-20 lg:px-40 mb-20'>
+                <div className='flex flex-col gap-6 mb-20 w-full max-w-full'>
                     <RecentContributionCards contributions={contributions} />
                 </div>
             </motion.div>
-            <div>
-                <div className="space-y-8">
+            <div className='w-full max-w-full'>
+                <div className="space-y-8 px-4 sm:px-6 md:px-8">
                     <div className="text-center">
                         <motion.h3
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.2, duration: 0.6 }}
                             viewport={{ once: true }}
-                            className="text-3xl font-bold mb-4">
+                            className="text-2xl sm:text-3xl font-bold mb-4">
                             <span className="gradient-text">GSoC 2025</span> Preparation
                         </motion.h3>
                         <motion.p
@@ -190,7 +192,7 @@ function OpenSource() {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.4 }}
                             viewport={{ once: true }}
-                            className="text-muted-foreground max-w-2xl mx-auto">
+                            className="text-muted-foreground max-w-2xl mx-auto px-4">
                             Actively researching and contributing to organizations for Google Summer of Code 2025.
                             Building relationships with mentors and understanding project requirements.
                         </motion.p>
@@ -201,16 +203,17 @@ function OpenSource() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         viewport={{ once: true }}
-                        className="grid md:grid-cols-3 gap-6">
+                        className="flex flex-col gap-3 w-full max-w-4xl mx-auto">
                         {gsocOrgs.map((org, index) => (
                             <motion.div key={org.name}
                                 initial={{ opacity: 0, x: 50 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                                 viewport={{ once: true }}
+                                className="w-full"
                             >
                                 <Card
-                                    className="card-hover border-border bg-gradient-accent/5 backdrop-blur-sm animate-slide-in-right"
+                                    className="card-hover border-border bg-gradient-accent/5 backdrop-blur-sm animate-slide-in-right w-full"
                                     style={{ animationDelay: `${index * 0.1}s` }}
                                 >
                                     <CardHeader>
@@ -223,7 +226,7 @@ function OpenSource() {
                                         <p className="text-sm text-muted-foreground">
                                             {org.description}
                                         </p>
-                                        <div className="flex items-center justify-between">
+                                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-0">
                                             <Badge
                                                 className={`${org.status === 'Applied'
                                                     ? 'bg-green-500 text-white'
@@ -252,7 +255,7 @@ function OpenSource() {
                 </div>
 
                 {/* Call to Action */}
-                <motion.div className="text-center mt-16"
+                {/* <motion.div className="text-center mt-16"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
@@ -276,7 +279,7 @@ function OpenSource() {
                             </Button>
                         </CardContent>
                     </Card>
-                </motion.div>
+                </motion.div> */}
 
             </div>
         </motion.div>

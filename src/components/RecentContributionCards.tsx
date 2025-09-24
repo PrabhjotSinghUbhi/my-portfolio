@@ -78,8 +78,10 @@ const RecentContributionCards = ({ contributions }: { contributions: any[] }) =>
                                     </h4>
                                     <p className="text-foreground">{contrib.myContribution}</p>
                                 </div>
-                                <div className="flex items-center justify-between">
-                                    {contrib.type}
+                                <div className="flex gap-4 sm:items-center flex-col sm:flex-row sm:justify-between">
+                                    <div className="">
+                                        {contrib.type}
+                                    </div>
                                     <Button variant="outline" size="sm" className="border-border" asChild>
                                         <a href={`https://github.com/${contrib.repo}`} target="_blank" rel="noopener noreferrer">
                                             <Github className="mr-2 h-3 w-3" />
