@@ -349,7 +349,7 @@ function ProjectCard({
                 </div>
 
                 {/* Action buttons */}
-                <div className="flex items-center space-x-3">
+                <div className="flex flex-col md:flex-row gap-2 items-center space-x-3">
                     {project.links.demo && (
                         <motion.a
                             href={project.links.demo}
@@ -357,7 +357,7 @@ function ProjectCard({
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05, x: 5 }}
                             whileTap={{ scale: 0.95 }}
-                            className="flex items-center space-x-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 group/btn"
+                            className="flex items-center w-full space-x-2 bg-primary text-primary-foreground px-6 py-3 rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-primary/25 group/btn justify-center"
                         >
                             <ExternalLink size={16} />
                             <span>Live Demo</span>
@@ -375,26 +375,13 @@ function ProjectCard({
                             rel="noopener noreferrer"
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
-                            className="flex items-center space-x-2 bg-muted hover:bg-accent text-foreground px-6 py-3 rounded-xl font-semibold transition-all duration-300 border border-border hover:border-primary/30"
+                            className="flex items-center space-x-2 bg-muted hover:bg-accent text-foreground px-6 py-3 rounded-xl font-semibold transition-all duration-300 border border-border hover:border-primary/30 w-full justify-center"
                         >
                             <Github size={16} />
                             <span>Code</span>
                         </motion.a>
                     )}
 
-                    {project.links.case_study && (
-                        <motion.a
-                            href={project.links.case_study}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="flex items-center space-x-2 text-primary hover:text-primary/80 px-4 py-3 rounded-xl font-semibold transition-all duration-300"
-                        >
-                            <Award size={16} />
-                            <span>Case Study</span>
-                        </motion.a>
-                    )}
                 </div>
             </div>
 
@@ -467,7 +454,7 @@ export default function FeaturedProjects() {
                 "Express",
                 "Node",
                 "Cloudinary",
-                "ShadCN",   
+                "ShadCN",
             ],
             category: "Web Application",
             status: "completed",
