@@ -8,6 +8,7 @@ import { ArrowBigDownIcon, ArrowDown, DownloadIcon, GithubIcon, Linkedin, Mail }
 import { BackgroundBeams } from './ui/shadcn-io/background-beams'
 import SkillCapsule from './SkillCapsule'
 import { motion } from 'framer-motion'
+import { ReactTyped } from "react-typed"
 
 type SocialIconItem = {
     name: string
@@ -75,9 +76,16 @@ export default function Hero({ className }: { className?: string }) {
                     transition={{ duration: 0.5 }}
                 >
                     <span>
-                        <div className=" text-2xl text-gray-500">Hello I'm a</div>
+                        <div className=" text-2xl text-gray-500">Hello I'm</div>
                     </span>
-                    <span className="bg-gradient-to-b bg-clip-text text-balance text-transparent from-neutral-200 to-neutral-600 ">   Full Stack <br /> Developer</span>
+                    <span className="bg-gradient-to-b bg-clip-text text-balance text-transparent from-neutral-200 to-neutral-600 ">
+                        <ReactTyped
+                            strings={["Prabhjot Singh", "Full Stack Developer", "Freelancer"]}
+                            typeSpeed={60}
+                            backSpeed={40}
+                            loop
+                        />
+                    </span>
                 </motion.h1>
 
                 <motion.p
@@ -87,7 +95,7 @@ export default function Hero({ className }: { className?: string }) {
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
                     Computer Science student building real-world projects and preparing for FAANG companies and GSoC 2025
-                </motion.p> 
+                </motion.p>
 
                 <motion.div
                     className="flex flex-wrap justify-center items-baseline gap-4"
