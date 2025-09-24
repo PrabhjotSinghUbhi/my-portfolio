@@ -79,7 +79,7 @@ const RecentContributionCards = ({ contributions }: { contributions: any[] }) =>
                                     <p className="text-foreground">{contrib.myContribution}</p>
                                 </div>
                                 <div className="flex gap-4 sm:items-center flex-col sm:flex-row sm:justify-between">
-                                    <div className="">
+                                    <div>
                                         {contrib.type}
                                     </div>
                                     <Button variant="outline" size="sm" className="border-border" asChild>
